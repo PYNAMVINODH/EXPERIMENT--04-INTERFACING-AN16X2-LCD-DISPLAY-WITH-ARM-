@@ -173,16 +173,61 @@ https://engineeringxpert.com/wp-content/uploads/2022/04/26.png
 
 
 ## STM 32 CUBE PROGRAM :
+```
+NAME : PYNAM VINODH
+REG NO : 212223240131
+```
+```C
+#include "main.h"
+#include "lcd.h"
+Lcd_PortType ports[]={GPIOA,GPIOA,GPIOA,GPIOA};
+Lcd_PinType pins[]={GPIO_PIN_3,GPIO_PIN_2,GPIO_PIN_1,GPIO_PIN_0};
+Lcd_HandleTypeDef lcd;
 
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
 
+  lcd=Lcd_create(ports,pins,GPIOB,GPIO_PIN_0,GPIOB,GPIO_PIN_1,LCD_4_BIT_MODE);
+  while (1)
+  {
+    lcd_display();
+  }
+}
 
+void lcd_display()
+{
+	Lcd_cursor(&lcd,1,0);
+	Lcd_string(&lcd,"PYNAM VINODH");
+ Lcd_cursor(&lcd, 1,1);
+ Lcd_string(&lcd, "212223240131");
+}
+
+```
 
 ## Output screen shots of proteus  :
+ BEFORE:
+<img width="1920" height="1080" alt="Screenshot 2025-11-17 190819" src="https://github.com/user-attachments/assets/601fdfc8-3140-4e1b-a707-8783c32c61ce" />
+
+
+
+ AFTER:
+<img width="1920" height="1080" alt="Screenshot 2025-11-13 090712" src="https://github.com/user-attachments/assets/d6005ddc-ae22-4883-9924-a42bda3b9671" />
+
+
+
  
  
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
  
+<img width="845" height="878" alt="Screenshot 2025-11-17 191026" src="https://github.com/user-attachments/assets/88918581-d29d-4f53-aff3-b8ed0aeaf938" />
+
+
+
  
 ## Result :
 Interfacing a lcd display with ARM microcontroller are simulated in proteus and the results are verified.
-
